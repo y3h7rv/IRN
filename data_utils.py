@@ -46,7 +46,7 @@ def process_data_c(KB_file, data_file, word2id, rel2id, ent2id, words, relations
 
     Triples, KBs, tails_size = get_KB(KB_file,ent2id,rel2id)
 
-    print "#records or Triples", len(np.nonzero(KBs)[0])
+    print ("#records or Triples", len(np.nonzero(KBs)[0]))
 
 
 
@@ -94,8 +94,8 @@ def process_data_c(KB_file, data_file, word2id, rel2id, ent2id, words, relations
         for t in subgraph:
             t = t.split('#')
             if not len(t)==3:
-                print "subgraph not a triple form!"
-                print t
+                print ("subgraph not a triple form!")
+                print (t)
             tt = [ent2id[t[0]],rel2id[t[1]],ent2id[t[2]]]
 
             if not tt in Triples.tolist():
@@ -156,7 +156,7 @@ def process_data(KB_file, data_file, word2id, rel2id, ent2id, words, relations, 
 
     Triples, KBs,tails_size = get_KB(KB_file,ent2id,rel2id)
 
-    print "#records or Triples", len(np.nonzero(KBs)[0])
+    print ("#records or Triples", len(np.nonzero(KBs)[0]))
 
 
 
@@ -216,8 +216,8 @@ def process_data(KB_file, data_file, word2id, rel2id, ent2id, words, relations, 
         for t in subgraph:
             t = t.split('#')
             if not len(t)==3:
-                print "subgraph not a triple form!"
-                print t
+                print ("subgraph not a triple form!")
+                print (t)
             tt = [ent2id[t[0]],rel2id[t[1]],ent2id[t[2]]]
 
             if not tt in Triples.tolist():
@@ -297,7 +297,7 @@ def get_KB(KB_file,ent2id,rel2id):
         KBmatrix[h*nrels+r,lenlist] = t
         tails[h*nrels+r]+=1
 
-    print "delete triples:", b
+    print ("delete triples:", b)
 
     return np.array(Triples), KBmatrix[:,:np.max(tails)], np.max(tails)
 
