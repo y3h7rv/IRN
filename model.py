@@ -46,9 +46,9 @@ class IRN(object):
                 KB_nil_grads_and_vars.append((zero_nil_slot(g), v))
             else:
                 KB_nil_grads_and_vars.append((g, v))
-        print "KB_grads_and_vars"
+        print ("KB_grads_and_vars")
         for g,v in KB_nil_grads_and_vars:
-            print g, v.name   
+            print (g, v.name)   
         KB_train_op = self._opt.apply_gradients(KB_grads_and_vars, name="KB_train_op")
 
 
@@ -69,9 +69,9 @@ class IRN(object):
             else:
                 QA_nil_grads_and_vars.append((g, v))
                
-        print "QA_grads_and_vars"
+        print ("QA_grads_and_vars")
         for g,v in QA_nil_grads_and_vars:
-            print g, v.name
+            print (g, v.name)
         #grads_and_vars = [(tf.Print(g, [v.name,str(g.get_shape()),g], summarize=1e1/2), v) for g, v in grads_and_vars]
 
         QA_train_op = self._opt.apply_gradients(QA_nil_grads_and_vars, name="QA_train_op")
@@ -340,9 +340,9 @@ class IRN_C(object):
                 KB_nil_grads_and_vars.append((zero_nil_slot(g), v))
             else:
                 KB_nil_grads_and_vars.append((g, v))
-        print "KB_grads_and_vars"
+        print ("KB_grads_and_vars")
         for g,v in KB_nil_grads_and_vars:
-            print g, v.name   
+            print (g, v.name)   
         KB_train_op = self._opt.apply_gradients(KB_grads_and_vars, name="KB_train_op")
         KBE_norm_op = tf.nn.l2_normalize(self.EE,1)
         KBR_norm_op = tf.nn.l2_normalize(self.RE,1)
@@ -366,9 +366,9 @@ class IRN_C(object):
             else:
                 QA_nil_grads_and_vars.append((g, v))
                
-        print "QA_grads_and_vars"
+        print ("QA_grads_and_vars")
         for g,v in QA_nil_grads_and_vars:
-            print g, v.name
+            print (g, v.name)
         #grads_and_vars = [(tf.Print(g, [v.name,str(g.get_shape()),g], summarize=1e1/2), v) for g, v in grads_and_vars]
 
         QA_train_op = self._opt.apply_gradients(QA_nil_grads_and_vars, name="QA_train_op")
