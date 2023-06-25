@@ -109,7 +109,8 @@ def MultiAcc(labels,preds,length):
 
 def RealAnswer(labels,pathpreds):
     #find answer-list from path-list
-    batch_size = preds.shape[0]
+    batch_size = pathpreds.shape[0]
+    #不确定是preds还是pathpreds
     anspreds = np.zeros(batch_size,dtype=int)
     for j in range(batch_size):
         k = len(labels[0]) - 1
@@ -134,7 +135,7 @@ def InSet(labels,anset,preds):
     #preds is path-list
     #labels is path-labels
     right = 0.0
-    for i in xrange(len(anset)):
+    for i in range(len(anset)):
         if type(preds[i]) is np.int64:
             ans_pred = preds[i]
         else:
