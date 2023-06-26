@@ -5,7 +5,7 @@ import time
 
 from data_process import process_data, process_data_c
 from utils import MultiAcc, MultiAcc_C, RealAnswer, ScoreRank, InSet, InnerRight
-from sklearn import cross_validation, metrics
+from sklearn import model_selection, metrics
 from model import IRN, IRN_C
 
 flags = tf.app.flags
@@ -86,8 +86,8 @@ def main(_):
     FLAGS.nrels = len(rel2id) 
     FLAGS.nents = len(ent2id)
     
-    trainQ, testQ, trainA, testA, trainP, testP, trainS, testS = cross_validation.train_test_split(Q, A, P, S, test_size=.1, random_state=123)
-    trainQ, validQ, trainA, validA, trainP, validP, trainS, validS = cross_validation.train_test_split(trainQ, trainA, trainP, trainS, test_size=.11, random_state=0)
+    trainQ, testQ, trainA, testA, trainP, testP, trainS, testS = model_selection.train_test_split(Q, A, P, S, test_size=.1, random_state=123)
+    trainQ, validQ, trainA, validA, trainP, validP, trainS, validS = model_selection.train_test_split(trainQ, trainA, trainP, trainS, test_size=.11, random_state=0)
     
     # for UNSEEN relations (incomplete kb setting, change data_utils.py)
     if FLAGS.unseen:
